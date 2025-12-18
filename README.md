@@ -11,3 +11,8 @@
 
 
 
+
+ER-диаграмма 
+
+<img width="1366" height="768" alt="Снимок экрана (359)" src="https://github.com/user-attachments/assets/24265c7e-2d12-41ea-928c-c2032e0df8b7" />
+
