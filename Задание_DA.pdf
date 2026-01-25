@@ -1,0 +1,120 @@
+Блок 1.
+
+Задание 1. Ответ 3,5
+Задание 2. Ответ 20,0
+Задание 3. Ответ 31,6; 85,6
+
+Блок 2.
+
+Задание 1.
+def areIsomorphic(s1, s2):
+    n = len(s1)
+
+  
+    for i in range(n):
+        c1 = s1[i]
+        c2 = s2[i]
+
+        
+        
+        for j in range(n):
+
+            
+            
+            if s1[j] == c1 and s2[j] != c2:
+                return False
+
+            
+            
+            if s2[j] == c2 and s1[j] != c1:
+                return False
+
+    return True
+O(n**2)-time complexity  O(1)-space
+
+Задание 2.
+def missingNum(arr):
+    n = len(arr) + 1
+
+    
+    totalSum = sum(arr)
+
+    
+    expSum = n * (n + 1) // 2
+
+
+    return expSum - totalSum
+O(n)-time  O(1)-space
+
+Задание 3.
+def primeFactor(n):
+    ans = []
+
+    
+    for i in range(2, n+1):
+
+        
+        while n % i == 0 and n > 0:
+            ans.append(i)
+
+            
+            n = n // i
+    return ans
+O(nlogn)-time   O(logn)-space
+
+Блок 3.
+
+Задание 1.
+select id, scores,
+rank() over(order by scores) as ranking
+from examination
+
+Задание 2.
+Минимальное число строк 30, максимальное 50
+
+Задание 3.
+select client_id from account as a
+join transaction as t
+on t.account_id = a.id
+where transaction_date between(current_date() - interval 12 month) and current_date()
+group by 1
+having sum(amount) < 5000;
+
+Блок 4.
+
+Задание 1.
+Тест нерепрезентативен, поэтому результаты применять по всей стране нельзя.
+Наличие эффекта подтвердило потенциал идеи, поэтому сразу применять по всем городам не будем, но можем провести эксперимент в других городах.
+
+Задание 2.
+Вероятность наблюдения такого или более экстремального результата при условии, что нулевая гипотеза верна.
+
+Задание 3.
+Можем применить t-критерий Стьюдента
+
+Блок 5.
+
+Задание 1.
+Возьму модель, которая показала ROC_AUC = 0,7
+
+Задание 2.
+
+import numpy as np
+from sklearn import metrics
+
+y = np.array([1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0])
+pred = np.array([0.95, 0.9, 0.85, 0.8, 0.75, 0.7, 0.65, 0.6, 0.55, 0.5, 0.45, 0.4, 0.35, 0.3, 0.25])
+# Расчёт ROC кривой
+fpr, tpr, thresholds = metrics.roc_curve(y, pred, pos_label=1)
+# расчёт AUC
+auc = metrics.auc(fpr, tpr)
+#0,75
+1) необходимо построить матрицу ошибок
+2) Вычисляем TPR и FPR
+3) Строим ROC кривую (отношение TPR к FPR)
+4) Рассчитываем AUС, которая является площадью под кривой
+
+Задание 3.
+-0,85
+Чем больше выпитых чашек кофе, тем меньше балл за экзамен и наоборот.
+Невозможно утверждать о причинно-следственной связи.
